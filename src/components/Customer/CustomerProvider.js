@@ -8,7 +8,7 @@ export const CustomerProvider = (props) => {
     const [customers, setCustomers] = useState([])
 
     const getCustomers = () => {
-        return fetch("http://localhost:8088/customers?_expand=location")
+        return fetch("http://localhost:8088/customers?_expand=animal")
         .then(res => res.json())
         .then(setCustomers)
     }

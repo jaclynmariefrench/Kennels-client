@@ -21,10 +21,10 @@ export const CustomerList = () => {
           return (
             <div className="customer" id={`customer--${customer.id}`}>
               <div className="customer__name">
-                Name: { customer.name }
+                <h3>{ customer.name }</h3>
               </div>
-              <div className="customer__pet">
-                Breed: { customer.petId }
+              <div className="customer__animal">
+                Pet's Name:  {customer.animal.name}
               </div>
             </div>
           )

@@ -21,10 +21,13 @@ export const AnimalList = () => {
           return (
             <div className="animal" id={`animal--${animal.id}`}>
               <div className="animal__name">
-                Name: { animal.name }
+                <h3>{ animal.name }</h3>
               </div>
               <div className="animal__breed">
                 Breed: { animal.breed }
+              </div>
+              <div>
+                Location: { animal.location.name }
               </div>
             </div>
           )
