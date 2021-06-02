@@ -10,15 +10,21 @@ import { CustomerProvider } from "./Customer/CustomerProvider";
 import { CustomerList } from "./Customer/CustomerList";
 import { AnimalForm } from "./animal/AnimalForm";
 import { EmployeeForm } from "./employees/EmployeeForm";
+import { LocationsForm } from "./locations/LocationsForm";
 
 export const ApplicationViews = () => {
   return (
     <>
       {/* Render the location list when http://localhost:3000/ */}
       <LocationsProvider>
+        <CustomerProvider>
         <Route exact path="/locations">
           <LocationList />
         </Route>
+        <Route exact path="/locations/create">
+          <LocationsForm/>
+        </Route>
+        </CustomerProvider>
       </LocationsProvider>
 
       {/* Render the animal list when http://localhost:3000/animals */}
