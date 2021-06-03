@@ -2,6 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { LocationsProvider } from "./locations/LocationsProvider";
 import { LocationList } from "./locations/LocationsList";
+import { LocationDetail } from "./locations/LocationDetails";
 import { AnimalProvider } from "./animal/AnimalProvider";
 import { EmployeeProvider } from "./employees/EmployeesProvider";
 import { EmployeeList } from "./employees/EmployeesList";
@@ -20,14 +21,21 @@ export const ApplicationViews = () => {
       {/* LOCATION */}
     
       <LocationsProvider>
+        <AnimalProvider>
         <CustomerProvider>
+          <EmployeeProvider>
           <Route exact path="/locations">
             <LocationList />
           </Route>
           <Route exact path="/locations/create">
             <LocationsForm />
           </Route>
+          <Route exact path="/locations/detail/:locationId(\d+)">
+            <LocationDetail />
+          </Route>
+          </EmployeeProvider>
         </CustomerProvider>
+        </AnimalProvider>
       </LocationsProvider>
       
       {/* ANIMAL */}
