@@ -22,6 +22,7 @@ export const LocationDetail = () => {
         <div className="locations__address">{ location.address }</div>
         <div className="locations__employees"><b>Employees:</b> { location.employees.map(e=> {return (<div>{e.name}</div>)})}</div>
         <div className="locations__animals"><b>Animals:</b> { location.animals.map(a=> {return (<div>{a.name}</div>)})}</div>
+        {/* <div className="test">{ parseINlocation.animals.id}</div> */}
     </section>
     )
 }
