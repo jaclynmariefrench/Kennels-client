@@ -24,7 +24,7 @@ export const CustomerList = () => {
                 <h3>{ customer.name }</h3>
               </div>
               <div className="customer__animal">
-                {/* Pet's Name:  {customer.animal.name} */}
+                Pet's Name:  {customer.animal.name}
               </div>
             </div>
           )
