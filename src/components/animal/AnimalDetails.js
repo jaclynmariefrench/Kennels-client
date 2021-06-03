@@ -15,7 +15,7 @@ export const AnimalDetail = () => {
 
 
     useEffect(() => {
-        const thisAnimal = animals.find(a => a.id === animalId) || { location: {}, customer: {} }
+        const thisAnimal = animals.find(a => a.id === parseInt(animalId)) || { location: {}, customer: {} }
 
         setAnimal(thisAnimal)
     }, [animalId])
