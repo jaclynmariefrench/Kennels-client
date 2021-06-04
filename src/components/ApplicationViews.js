@@ -57,8 +57,8 @@ export const ApplicationViews = () => {
             </Route>
             {/* ANIMAL EDIT */}
             <Route path="/animals/edit/:animalId(\d+)">
-                <AnimalForm />
-              </Route>
+              <AnimalForm />
+            </Route>
           </CustomerProvider>
         </LocationsProvider>
       </AnimalProvider>
@@ -75,6 +75,9 @@ export const ApplicationViews = () => {
           </Route>
           <Route exact path="/employees/detail/:employeeId(\d+)">
             <EmployeeDetail />
+          </Route>
+          <Route path="/employees/edit/:employeeId(\d+)">
+            <EmployeeForm />
           </Route>
         </LocationsProvider>
       </EmployeeProvider>
