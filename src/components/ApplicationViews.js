@@ -19,41 +19,46 @@ export const ApplicationViews = () => {
   return (
     <>
       {/* LOCATION */}
-    
+
       <LocationsProvider>
         <AnimalProvider>
-        <CustomerProvider>
-          <EmployeeProvider>
-          <Route exact path="/locations">
-            <LocationList />
-          </Route>
-          <Route exact path="/locations/create">
-            <LocationsForm />
-          </Route>
-          <Route exact path="/locations/detail/:locationId(\d+)">
-            <LocationDetail />
-          </Route>
-          </EmployeeProvider>
-        </CustomerProvider>
+          <CustomerProvider>
+            <EmployeeProvider>
+              <Route exact path="/locations">
+                <LocationList />
+              </Route>
+              <Route exact path="/locations/create">
+                <LocationsForm />
+              </Route>
+              <Route exact path="/locations/detail/:locationId(\d+)">
+                <LocationDetail />
+              </Route>
+            </EmployeeProvider>
+          </CustomerProvider>
         </AnimalProvider>
       </LocationsProvider>
-      
+
       {/* ANIMAL */}
-      
+
       <AnimalProvider>
         <LocationsProvider>
           <CustomerProvider>
+            {/* ANIMAL PAGE */}
             <Route exact path="/animals">
               <AnimalList />
             </Route>
-
+            {/* ANIMAL FORM */}
             <Route exact path="/animals/create">
               <AnimalForm />
             </Route>
-
+            {/* ANIMAL DETAIL */}
             <Route exact path="/animals/detail/:animalId(\d+)">
               <AnimalDetail />
             </Route>
+            {/* ANIMAL EDIT */}
+            <Route path="/animals/edit/:animalId(\d+)">
+                <AnimalForm />
+              </Route>
           </CustomerProvider>
         </LocationsProvider>
       </AnimalProvider>
@@ -73,9 +78,9 @@ export const ApplicationViews = () => {
           </Route>
         </LocationsProvider>
       </EmployeeProvider>
-      
+
       {/* CUSTOMERS */}
-      
+
       <CustomerProvider>
         <AnimalProvider>
           <Route path="/customers">
