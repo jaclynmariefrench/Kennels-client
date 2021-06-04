@@ -90,6 +90,15 @@ export const AnimalForm = () => {
         </fieldset>
         <fieldset>
           <div className="form-group">
+            <label htmlFor="animalBreed">Animal breed: </label>
+            <input type="text" id="animalBreed" name="breed" required autoFocus className="form-control"
+            placeholder="Animal breed"
+            onChange={handleControlledInputChange}
+            defaultValue={animal.breed}/>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div className="form-group">
             <label htmlFor="location">Assign to location: </label>
             <select value={animal.locationId} name="locationId" id="animalLocation" className="form-control" onChange={handleControlledInputChange}>
               <option value="0">Select a location</option>
