@@ -8,6 +8,7 @@ export const LocationsForm = () => {
     useContext(LocationContext);
 
   const [location, setLocations] = useState({});
+
   const [isLoading, setIsLoading] = useState(true);
 
   const { locationId } = useParams();
@@ -40,28 +41,6 @@ export const LocationsForm = () => {
       }
 
   }
-        
-
-
-  // const handleClickSaveLocation = () => {
-  //   if (location.name && location.address === "") {
-  //     window.alert("Please enter in all text forms.");
-  //   } else {
-  //     setIsLoading(true);
-  //     if (locationId) {
-  //       updateLocation({
-  //         id: location.id,
-  //         name: location.id,
-  //         locationId: parseInt(location.locationId),
-  //       }).then(() => history.push(`/locations/detail/${location.id}`));
-  //     } else {
-  //       addLocation({
-  //         name: location.name,
-  //         locationId: parseInt(location.locationId),
-  //       }).then(() => history.push("/locations"));
-  //     }
-  //   }
-  // };
 
   useEffect(() => {
     

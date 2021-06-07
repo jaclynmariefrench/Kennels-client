@@ -6,6 +6,7 @@ export const LocationContext = createContext()
 // This component establishes what data can be used.
 export const LocationsProvider = (props) => {
     const [locations, setLocations] = useState([])
+    
 
     const getLocations = () => {
         return fetch("http://localhost:8088/locations?_embed=employees&_embed=animals")
@@ -44,7 +45,7 @@ export const LocationsProvider = (props) => {
 
     return (
         <LocationContext.Provider value={{
-            locations, getLocations, addLocation, updateLocation, getLocationsById
+            locations, getLocations, addLocation, updateLocation, getLocationsById, 
         }}>
             {props.children}
         </LocationContext.Provider>
