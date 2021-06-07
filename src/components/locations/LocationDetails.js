@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { LocationContext } from "./LocationsProvider"
 import "./locations.css"
-import { useParams } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 
 export const LocationDetail = () => {
     const { locations } = useContext(LocationContext)
@@ -9,6 +9,7 @@ export const LocationDetail = () => {
 
     const { locationId } = useParams();
 
+    const history = useHistory()
 
     useEffect(() => {
         const thisLocation = locations.find(a => a.id === parseInt(locationId)) || { animals: [], employees: [] }
@@ -22,7 +23,13 @@ export const LocationDetail = () => {
         <div className="locations__address">{ location.address }</div>
         <div className="locations__employees"><b>Employees:</b> { location.employees.map(e=> {return (<div>{e.name}</div>)})}</div>
         <div className="locations__animals"><b>Animals:</b> { location.animals.map(a=> {return (<div>{a.name}</div>)})}</div>
-        {/* <div className="test">{ parseINlocation.animals.id}</div> */}
+        <button
+        onClick={() => {
+          history.push(`/locations/edit/${location.id}`);
+        }}
+      >
+        Edit
+      </button>
     </section>
     )
 }
