@@ -8,25 +8,15 @@ export const EmployeeForm = () => {
     const { addEmployee, getEmployeeById, updateEmployee } = useContext(EmployeeContext)
     const { locations, getLocations } = useContext(LocationContext)
     
-
-    //for edit, hold on to state of Employee in this view
-    const [employee, setEmployees] = useState({name: "", locationId: 0})
-    //wait for data before button is active
+    const [employee, setEmployees] = useState({})
     const [isLoading, setIsLoading] = useState(true);
 
     const {employeeId} = useParams();
 	  const history = useHistory();
 
-    //when field changes, update state. This causes a re-render and updates the view.
-    //Controlled component
     const handleControlledInputChange = (event) => {
-      //When changing a state object or array,
-      //always create a copy make changes, and then set state.
       const newEmployee = { ...employee }
-      //Employee is an object with properties.
-      //set the property to the new value
       newEmployee[event.target.name] = event.target.value
-      //update state
       setEmployees(newEmployee)
     }
 
@@ -34,7 +24,6 @@ export const EmployeeForm = () => {
       if (parseInt(employee.locationId) === 0) {
           window.alert("Please select a location")
       } else {
-        //disable the button - no extra clicks
         setIsLoading(true);
         if (employeeId){
           //PUT - update

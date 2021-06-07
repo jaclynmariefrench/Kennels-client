@@ -5,14 +5,14 @@ import { useHistory, useParams } from "react-router-dom"
 
 export const EmployeeDetail = () => {
     const { employees } = useContext(EmployeeContext)
-    const [ employee, setEmployee ] = useState({ location: {}, customer: {} })
+    const [ employee, setEmployee ] = useState({ location: {} })
 
     const { employeeId } = useParams();
     const history = useHistory()
 
 
     useEffect(() => {
-        const thisEmployee = employees.find(a => a.id === parseInt(employeeId)) || { location: {}, customer: {} }
+        const thisEmployee = employees.find(a => a.id === parseInt(employeeId)) || { location: {} }
 
         setEmployee(thisEmployee)
     }, [employeeId])

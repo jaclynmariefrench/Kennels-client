@@ -37,7 +37,7 @@ export const EmployeeProvider = (props) => {
 
       const getEmployeeById = (employeeId) => {
         return fetch(`http://localhost:8088/employees/${employeeId}`)
-        .then(res => res.json)
+        .then(res => res.json())
       }
 
     /*
