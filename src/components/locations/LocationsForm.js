@@ -15,32 +15,56 @@ export const LocationsForm = () => {
 
   const handleControlledInputChange = (event) => {
     const newLocation = { ...location };
-    newLocation[event.target.name] = event.target.value;
+    newLocation[event.target.id] = event.target.value;
     setLocations(newLocation);
   };
 
   const handleClickSaveLocation = () => {
-    if (location.name && location.address === "") {
-      window.alert("Please enter in all text forms.");
-    } else {
       setIsLoading(true);
-      if (locationId) {
-        updateLocation({
+      if (locationId){
+        const editedLocation = {
           id: location.id,
-          name: location.id,
-          locationId: parseInt(location.locationId),
-        }).then(() => history.push(`/locations/detail/${location.id}`));
-      } else {
-        addLocation({
           name: location.name,
-          locationId: parseInt(location.locationId),
-        }).then(() => history.push("/locations"));
+          address: location.address,
+        }
+      updateLocation(editedLocation)
+      .then(()=> history.push(`/locations/details/${location.id}`))
       }
-    }
-  };
+      else {
+        const newLocation = {
+          name: location.name, 
+          address: location.address,
+        }
+        addLocation(newLocation)
+        .then(()=> history.push("/locations"))
+      }
+
+  }
+        
+
+
+  // const handleClickSaveLocation = () => {
+  //   if (location.name && location.address === "") {
+  //     window.alert("Please enter in all text forms.");
+  //   } else {
+  //     setIsLoading(true);
+  //     if (locationId) {
+  //       updateLocation({
+  //         id: location.id,
+  //         name: location.id,
+  //         locationId: parseInt(location.locationId),
+  //       }).then(() => history.push(`/locations/detail/${location.id}`));
+  //     } else {
+  //       addLocation({
+  //         name: location.name,
+  //         locationId: parseInt(location.locationId),
+  //       }).then(() => history.push("/locations"));
+  //     }
+  //   }
+  // };
 
   useEffect(() => {
-    getLocations().then(() => {
+    
       if (locationId) {
         getLocationsById(locationId).then((location) => {
           setLocations(location);
@@ -49,7 +73,7 @@ export const LocationsForm = () => {
       } else {
         setIsLoading(false);
       }
-    });
+    ;
   }, []);
 
   return (
