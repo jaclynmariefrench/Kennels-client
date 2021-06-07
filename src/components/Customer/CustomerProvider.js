@@ -8,13 +8,13 @@ export const CustomerProvider = (props) => {
     const [customers, setCustomers] = useState([])
 
     const getCustomers = () => {
-        return fetch("http://localhost:8088/customers?_expand=animal")
+        return fetch("http://kennel-api-react.herokuapp.com/customers?_expand=animal")
         .then(res => res.json())
         .then(setCustomers)
     }
 
     const addCustomer = customerObj => {
-        return fetch("http://localhost:8088/customers", {
+        return fetch("http://kennel-api-react.herokuapp.com/customers", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

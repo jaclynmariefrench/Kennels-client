@@ -9,13 +9,13 @@ export const LocationsProvider = (props) => {
     
 
     const getLocations = () => {
-        return fetch("http://localhost:8088/locations?_embed=employees&_embed=animals")
+        return fetch("http://kennel-api-react.herokuapp.com/locations?_embed=employees&_embed=animals")
         .then(res => res.json())
         .then(setLocations)
     }
 
     const addLocation = locationObj => {
-        return fetch("http://localhost:8088/locations", {
+        return fetch("http://kennel-api-react.herokuapp.com/locations", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -26,7 +26,7 @@ export const LocationsProvider = (props) => {
     }
 
     const updateLocation = location => {
-        return fetch(`http://localhost:8088/locations/${location.id}`, {
+        return fetch(`http://kennel-api-react.herokuapp.com/locations/${location.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"
@@ -37,7 +37,7 @@ export const LocationsProvider = (props) => {
       }
 
       const getLocationsById = (locationId) => {
-        return fetch(`http://localhost:8088/locations/${locationId}`)
+        return fetch(`http://kennel-api-react.herokuapp.com/locations/${locationId}`)
         .then(res => res.json())
       }
 
