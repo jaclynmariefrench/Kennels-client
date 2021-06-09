@@ -25,7 +25,7 @@ export const EmployeeForm = () => {
           window.alert("Please select a location")
       } else {
         setIsLoading(true);
-        if (employeeId){
+        if (employeeId){n
           //PUT - update
           updateEmployee({
               id: employee.id,
@@ -40,7 +40,7 @@ export const EmployeeForm = () => {
               locationId: parseInt(employee.locationId),
           })
           .then(() => history.push("/employees"))
-        }
+        } 
       }
     }
 
