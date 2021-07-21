@@ -9,9 +9,9 @@ export const AnimalDetail = () => {
 
   /*
         Given the example URL above, this will store the value
-        of 5 in the animalId variable
+        of 5 in the animal_id variable
     */
-  const { animalId } = useParams();
+  const { animal_id } = useParams();
 
   const history = useHistory();
 
@@ -22,13 +22,13 @@ export const AnimalDetail = () => {
   };
 
   useEffect(() => {
-    const thisAnimal = animals.find((a) => a.id === parseInt(animalId)) || {
+    const thisAnimal = animals.find((a) => a.id === parseInt(animal_id)) || {
       location: {},
       customer: {},
     };
 
     setAnimal(thisAnimal);
-  }, [animalId]);
+  }, [animal_id]);
 
   return (
     <section className="animal">

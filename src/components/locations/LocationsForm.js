@@ -11,7 +11,7 @@ export const LocationsForm = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const { locationId } = useParams();
+  const { location_id } = useParams();
   const history = useHistory();
 
   const handleControlledInputChange = (event) => {
@@ -22,7 +22,7 @@ export const LocationsForm = () => {
 
   const handleClickSaveLocation = () => {
       setIsLoading(true);
-      if (locationId){
+      if (location_id){
         const editedLocation = {
           id: location.id,
           name: location.name,
@@ -44,8 +44,8 @@ export const LocationsForm = () => {
 
   useEffect(() => {
     
-      if (locationId) {
-        getLocationsById(locationId).then((location) => {
+      if (location_id) {
+        getLocationsById(location_id).then((location) => {
           setLocations(location);
           setIsLoading(false);
         });
@@ -96,7 +96,7 @@ export const LocationsForm = () => {
           handleClickSaveLocation();
         }}
       >
-        {locationId ? <>Save Location</> : <>Add Location</>}
+        {location_id ? <>Save Location</> : <>Add Location</>}
       </button>
     </form>
   );

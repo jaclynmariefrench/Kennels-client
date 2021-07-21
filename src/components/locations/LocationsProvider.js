@@ -36,8 +36,8 @@ export const LocationsProvider = (props) => {
           .then(getLocations)
       }
 
-      const getLocationsById = (locationId) => {
-        return fetch(`http://localhost:8088/locations/${locationId}`)
+      const getLocationsById = (location_id) => {
+        return fetch(`http://localhost:8088/locations/${location_id}`)
         .then(res => res.json())
       }
 

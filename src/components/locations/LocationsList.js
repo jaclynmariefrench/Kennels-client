@@ -29,8 +29,8 @@ export const LocationList = () => {
       {locations.map((location) => (
         <div class="link_locations">
         <Link key={location.id} to={`/locations/detail/${location.id}`}>{location.name}</Link>
-        <div key={location.employees.length}>{location.employees.length} employees</div>
-        <div key={location.animals.length}>{location.animals.length} animals</div>
+        {/* <div key={location.employees.length}>{location.employees.length} employees</div> */}
+        {/* <div key={location.animals.length}>{location.animals.length} animals</div> */}
         </div>
       ))}
 

@@ -21,23 +21,23 @@ export const EmployeeForm = () => {
     }
 
     const handleSaveEmployee = () => {
-      if (parseInt(employee.locationId) === 0) {
+      if (parseInt(employee.location_id) === 0) {
           window.alert("Please select a location")
       } else {
         setIsLoading(true);
-        if (employeeId){n
+        if (employeeId){
           //PUT - update
           updateEmployee({
               id: employee.id,
               name: employee.name,
-              locationId: parseInt(employee.locationId),
+              location_id: parseInt(employee.location_id),
           })
           .then(() => history.push(`/employees/detail/${employee.id}`))
         }else {
           //POST - add
           addEmployee({
               name: employee.name,
-              locationId: parseInt(employee.locationId),
+              location_id: parseInt(employee.location_id),
           })
           .then(() => history.push("/employees"))
         } 
@@ -77,7 +77,7 @@ export const EmployeeForm = () => {
         <fieldset>
           <div className="form-group">
             <label htmlFor="location">Assign to location: </label>
-            <select value={employee.locationId} name="locationId" id="EmployeeLocation" className="form-control" onChange={handleControlledInputChange}>
+            <select value={employee.location_id} name="location_id" id="EmployeeLocation" className="form-control" onChange={handleControlledInputChange}>
               <option value="0">Select a location</option>
               {locations.map(l => (
                 <option key={l.id} value={l.id}>
@@ -131,7 +131,7 @@ export const EmployeeForm = () => {
 
 //   const [employee, setEmployees] = useState({
 //     name: "",
-//     locationId: 0
+//     location_id: 0
 //   });
 
 //   const history = useHistory();
@@ -157,9 +157,9 @@ export const EmployeeForm = () => {
 //   const handleClickSaveEmployee = (event) => {
 //     event.preventDefault() //Prevents the browser from submitting the form
 
-//     const locationId = parseInt(employee.locationId)
+//     const location_id = parseInt(employee.location_id)
 
-//     if (locationId === 0) {
+//     if (location_id === 0) {
 //       window.alert("Please select a location and a customer")
 //     } else {
 //       //Invoke addEmployee passing the new Employee object as an argument
@@ -167,7 +167,7 @@ export const EmployeeForm = () => {
 
 //       const newEmployee = {
 //         name: employee.name,
-//         locationId: locationId,
+//         location_id: location_id,
 //       }
 //       addEmployee(newEmployee)
 //         .then(() => history.push("/employees"))
@@ -186,7 +186,7 @@ export const EmployeeForm = () => {
 //       <fieldset>
 //         <div className="form-group">
 //           <label htmlFor="location">Assign to location: </label>
-//           <select name="locationId" id="locationId" className="form-control" value={employee.locationId} onChange={handleControlledInputChange}>
+//           <select name="location_id" id="location_id" className="form-control" value={employee.location_id} onChange={handleControlledInputChange}>
 //             <option value="0">Select a location</option>
 //             {locations.map(l => (
 //               <option key={l.id} value={l.id}>

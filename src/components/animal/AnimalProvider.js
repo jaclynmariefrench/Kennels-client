@@ -25,8 +25,8 @@ export const AnimalProvider = (props) => {
         .then(getAnimals)
     }
 
-    const releaseAnimal = animalId => {
-        return fetch(`http://localhost:8088/animals/${animalId}`, {
+    const releaseAnimal = animal_id => {
+        return fetch(`http://localhost:8088/animals/${animal_id}`, {
             method: "DELETE"
         })
             .then(getAnimals)
@@ -42,8 +42,8 @@ export const AnimalProvider = (props) => {
         })
           .then(getAnimals)
       }
-      const getAnimalById = (animalId) => {
-        return fetch (`http://localhost:8088/animals/${animalId}`)
+      const getAnimalById = (animal_id) => {
+        return fetch (`http://localhost:8088/animals/${animal_id}`)
         .then(res => res.json())
       }
     
