@@ -8,13 +8,13 @@ export const EmployeeProvider = (props) => {
     const [employees, setEmployees] = useState([])
 
     const getEmployees = () => {
-        return fetch("http://kennel-api-react.herokuapp.com/employees?_expand=location")
+        return fetch("http://localhost:8088/employees")
         .then(res => res.json())
         .then(setEmployees)
     }
 
     const addEmployee = employeeObj => {
-        return fetch("http://kennel-api-react.herokuapp.com/employees", {
+        return fetch("http://localhost:8088/employees", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -25,7 +25,7 @@ export const EmployeeProvider = (props) => {
     }
 
     const updateEmployee = employee => {
-        return fetch(`http://kennel-api-react.herokuapp.com/employees/${employee.id}`, {
+        return fetch(`http://localhost:8088/employees/${employee.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"
@@ -36,7 +36,7 @@ export const EmployeeProvider = (props) => {
       }
 
       const getEmployeeById = (employeeId) => {
-        return fetch(`http://kennel-api-react.herokuapp.com/employees/${employeeId}`)
+        return fetch(`http://localhost:8088/employees/${employeeId}`)
         .then(res => res.json())
       }
 

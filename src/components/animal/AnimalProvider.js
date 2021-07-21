@@ -9,13 +9,13 @@ export const AnimalProvider = (props) => {
     const [ searchTerms, setSearchTerms ] = useState("")
 
     const getAnimals = () => {
-        return fetch("http://kennel-api-react.herokuapp.com/animals?_expand=customer&_expand=location&_sort=location.id")
+        return fetch("http://localhost:8088/animals")
         .then(res => res.json())
         .then(setAnimals)
     }
 
     const addAnimal = animalObj => {
-        return fetch("http://kennel-api-react.herokuapp.com/animals", {
+        return fetch("http://localhost:8088/animals", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -26,14 +26,14 @@ export const AnimalProvider = (props) => {
     }
 
     const releaseAnimal = animalId => {
-        return fetch(`http://kennel-api-react.herokuapp.com/animals/${animalId}`, {
+        return fetch(`http://localhost:8088/animals/${animalId}`, {
             method: "DELETE"
         })
             .then(getAnimals)
     }
 
     const updateAnimal = animal => {
-        return fetch(`http://kennel-api-react.herokuapp.com/animals/${animal.id}`, {
+        return fetch(`http://localhost:8088/animals/${animal.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"
@@ -43,7 +43,7 @@ export const AnimalProvider = (props) => {
           .then(getAnimals)
       }
       const getAnimalById = (animalId) => {
-        return fetch (`http://kennel-api-react.herokuapp.com/animals/${animalId}`)
+        return fetch (`http://localhost:8088/animals/${animalId}`)
         .then(res => res.json())
       }
     
