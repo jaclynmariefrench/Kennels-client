@@ -42,6 +42,8 @@ export const AnimalForm = () => {
           updateAnimal({
               id: animal.id,
               name: animal.name,
+              breed: animal.breed,
+              status: animal.status,
               location_id: parseInt(animal.location_id),
               customer_id: parseInt(animal.customer_id)
           })
@@ -50,6 +52,8 @@ export const AnimalForm = () => {
           //POST - add
           addAnimal({
               name: animal.name,
+              breed: animal.breed,
+              status: animal.status,
               location_id: parseInt(animal.location_id),
               customer_id: parseInt(animal.customer_id)
           })
@@ -95,6 +99,15 @@ export const AnimalForm = () => {
             placeholder="Animal breed"
             onChange={handleControlledInputChange}
             defaultValue={animal.breed}/>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div className="form-group">
+            <label htmlFor="animalStatus">Animal Status: </label>
+            <input type="text" id="animalStatus" name="status" required autoFocus className="form-control"
+            placeholder="Animal Status"
+            onChange={handleControlledInputChange}
+            defaultValue={animal.status}/>
           </div>
         </fieldset>
         <fieldset>
